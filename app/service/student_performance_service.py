@@ -9,7 +9,7 @@ from app.schema.student_data_body import StudentDataBody
 from app.database import Session
 from app.service.grade_classification_mapper import to_grade_classification
 
-PIPELINE_FILE_PATH = './app/machine_learning/pipelines/svm_student_performance_pipeline.pkl'
+PIPELINE_FILE_PATH = './machine_learning/pipelines/svm_student_performance_pipeline.pkl'
 
 class StudentPerformanceService:
 
