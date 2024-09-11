@@ -1,6 +1,6 @@
 from enum import Enum
 
-class GradeClassification(Enum):
+class Grade(Enum):
     A = 0
     B = 1
     C = 2

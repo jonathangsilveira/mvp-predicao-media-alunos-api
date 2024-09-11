@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 import os
 
-from app.entity.student_performance import BaseEntity
+from app.entity.student_performance_entity import BaseEntity
 
 db_path = "app/database"
 # Verifica se o diretorio não existe

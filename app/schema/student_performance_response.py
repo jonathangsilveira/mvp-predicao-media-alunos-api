@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 
 class StudentPerformanceResponse(BaseModel):
+    student_id: int = 1
     age: int = 15
     gender_code: int = 1 
     ethnicity_code: int = 1

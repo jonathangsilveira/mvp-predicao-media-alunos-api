@@ -1,14 +1,14 @@
+from app.model.grade import Grade
 
-from app.model.grade_classification import GradeClassification
 
-def to_grade_classification(classification: int) -> GradeClassification:
-    if classification == 0:
-        return GradeClassification.A
-    elif classification == 1: 
-        return GradeClassification.B
-    elif classification == 2:
-        return GradeClassification.C
-    elif classification == 3:
-        return GradeClassification.D
-    else:
-        return GradeClassification.E
+class GradeMapper:
+
+    def map(self, classification: int) -> Grade:
+        grades = {
+            0: Grade.A,
+            1: Grade.B,
+            2: Grade.C,
+            3: Grade.D,
+            4: Grade.E
+        }
+        return grades[classification]
