@@ -4,7 +4,6 @@ import numpy as np
 
 from app.ml_model.pipeline_delegate import PipelineDelegate
 from app.model.grade import Grade
-from app.model.pipeline.pipeline import PipelineLoader
 
 from app.model.student_performance import StudentPerformance
 from app.repository.student_performance_repository import StudentPerformanceRepository
