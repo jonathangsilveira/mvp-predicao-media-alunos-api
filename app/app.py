@@ -25,7 +25,7 @@ app = OpenAPI(__name__, info=info)
 CORS(app)
 
 student_performance_tag = Tag(name='Performance do estudante', 
-                              description='Lista de performance de estudantes cadastrados na base.')
+                              description='Adição, remoção e visualização de lista de performance de estudantes cadastrados na base.')
 prediction_tag = Tag(name='Predição da classificação da nota final do estudante ', 
                      description='Faz a predição da classificação da nota final do estudante, com base em informações demográficas' + 
                      ', hábitos de estudos, involvimento dos pais e atividades extracurriculares.')
@@ -63,7 +63,6 @@ def predict_student_grade(body: StudentDataBody) -> Response:
             response=model.model_dump_json()
         )
     except Exception as e:
-        print(f'Erro na predição da média: {str(e)}')
         model: BaseModel = ErrorResponse(
             error_massage=f'Erro na predição de classificação de média do estudante!'
         )
@@ -89,7 +88,6 @@ def get_all_student_performance() -> Response:
             response=body.model_dump_json()
         )
     except Exception as e:
-        print(f'Erro na predição da média: {e}')
         body: BaseModel = ErrorResponse(
             error_massage=f'Erro na consultar performances dos estudantes!'
         )
@@ -112,7 +110,6 @@ def get_student_performance_by_id(path: StudentPerformanceByIdPath) -> Response:
         performance = service.get_student_performance_by_id(path.student_id)
 
         if not performance:
-            print(f'Performance do estudante não encontrado para o ID')
             body: BaseModel = ErrorResponse(
                 error_massage=f'Performance do estudante não encontrado para o ID {path.student_id}!'
             )
@@ -129,7 +126,6 @@ def get_student_performance_by_id(path: StudentPerformanceByIdPath) -> Response:
             response=body.model_dump_json()
         )
     except Exception as e:
-        print(f'Erro na consultar performances dos estudantes: {str(e)}')
         body: BaseModel = ErrorResponse(
             error_massage=f'Erro na consultar performances dos estudantes!'
         )
@@ -156,7 +152,6 @@ def remove_student_performance_by_id(path: StudentPerformanceByIdPath) -> Respon
             response=body.model_dump_json()
         )
     except Exception as e:
-        print(f'Erro excluir performance do estudante: {str(e)}')
         body: BaseModel = ErrorResponse(
             error_massage=f'Erro excluir performance do estudante!'
         )
