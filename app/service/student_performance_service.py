@@ -18,15 +18,15 @@ PIPELINE_FILE_PATH = './machine_learning/pipelines/svm_student_performance_pipel
 class StudentPerformanceService:
 
     def __init__(self, repository: StudentPerformanceRepository, 
-                 grade_mapper: GradeMapper, preProcessor: InputReshapePreProcessor, 
+                 grade_mapper: GradeMapper, pre_processor: InputReshapePreProcessor, 
                  pipeline: PipelineDelegate) -> None:
         self.repository = repository
         self.grade_mapper = grade_mapper
-        self.preProcessor = preProcessor
+        self.pre_processor = pre_processor
         self.pipeline = pipeline
 
     def predict(self, studentData: StudentDataBody) -> Grade:
-        input = self.preProcessor.process_reshape(studentData)
+        input = self.pre_processor.process_reshape(studentData)
 
         self.pipeline.load(PIPELINE_FILE_PATH)
         
