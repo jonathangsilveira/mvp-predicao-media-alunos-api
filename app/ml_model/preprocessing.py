@@ -38,19 +38,19 @@ class InputReshapePreProcessorImpl(InputReshapePreProcessor):
         ])
         dataset: list[list] = x_input.reshape(1, -1)
         columns = (
-            'age',
-            'gender_code',
-            'ethnicity_code',
-            'parental_education_level',
-            'weekly_study_time',
-            'absence_count',
-            'tutoring_status',
-            'parental_support_level',
-            'extracurricular',
-            'sports',
-            'music',
-            'volunteering'
+            'Age', 
+            'Gender', 
+            'Ethnicity', 
+            'ParentalEducation', 
+            'StudyTimeWeekly', 
+            'Absences', 
+            'Tutoring', 
+            'ParentalSupport', 
+            'Extracurricular', 
+            'Sports', 
+            'Music', 
+            'Volunteering'
         )
         dataframe = pandas.DataFrame(data=dataset, columns=columns)
         data: list[list] = dataframe.to_numpy()
-        return data[:,0:11]
+        return data[:,0:12]
