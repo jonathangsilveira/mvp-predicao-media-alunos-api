@@ -6,6 +6,8 @@ from flask_cors import CORS
 from pydantic import BaseModel
 
 
+from app.ml_model.pipeline_delegate import PipelineDelegate
+from app.ml_model.preprocessing import InputReshapePreProcessorImpl
 from app.repository.student_performance_repository import StudentPerformanceRepository
 from app.schema.student_data_body import StudentDataBody
 from app.schema.student_grade_prediction_response import StudentGradePredictionResponse
@@ -33,7 +35,10 @@ JSON_MIMETYPE = 'application/json'
 grade_mapper = GradeMapper()
 data_mapper = StudentPerformanceDataMapper(grade_mapper=grade_mapper)
 repository = StudentPerformanceRepository(data_mapper=data_mapper)
-service = StudentPerformanceService(repository=repository, grade_mapper=grade_mapper)
+pre_processor = InputReshapePreProcessorImpl()
+pipeline = PipelineDelegate()
+service = StudentPerformanceService(repository=repository, grade_mapper=grade_mapper, 
+                                    pre_processor=pre_processor, pipeline=pipeline)
 
 @app.route('/api')
 def swagger_doc():
