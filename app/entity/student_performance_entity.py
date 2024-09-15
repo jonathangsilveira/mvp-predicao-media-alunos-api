@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, Integer
+from sqlalchemy import Column, Integer, Float
 from typing import Optional
 
 BaseEntity = declarative_base()
@@ -8,27 +8,27 @@ class StudentPerformanceEntity(BaseEntity):
     __tablename__ = 'student_performance'
 
     student_id = Column('student_id', Integer, primary_key=True, autoincrement=True)
-    age = Column('age', Integer, nullable=False)
-    gender_code = Column('gender_code', Integer, nullable=False)
-    ethnicity_code = Column('ethnicity_code', Integer, nullable=False)
-    parental_education_level = Column('parental_education_level', Integer, nullable=False)
-    weekly_study_time = Column('weekly_study_time', Integer, nullable=False)
-    absence_count = Column('absences', Integer, nullable=False)
-    tutoring_status = Column('tutoring', Integer, nullable=False)
-    parental_support_level = Column('parental_support_level', Integer, nullable=False)
-    extracurricular = Column('extracurricular', Integer, nullable=False)
-    sports = Column('sports', Integer, nullable=False)
-    music = Column('music', Integer, nullable=False)
-    volunteering = Column('volunteering', Integer, nullable=False)
-    grade_classification = Column('grade_class', Integer, nullable=False)
+    age = Column('age', Float, nullable=False)
+    gender_code = Column('gender_code', Float, nullable=False)
+    ethnicity_code = Column('ethnicity_code', Float, nullable=False)
+    parental_education_level = Column('parental_education_level', Float, nullable=False)
+    weekly_study_time = Column('weekly_study_time', Float, nullable=False)
+    absence_count = Column('absences', Float, nullable=False)
+    tutoring_status = Column('tutoring', Float, nullable=False)
+    parental_support_level = Column('parental_support_level', Float, nullable=False)
+    extracurricular = Column('extracurricular', Float, nullable=False)
+    sports = Column('sports', Float, nullable=False)
+    music = Column('music', Float, nullable=False)
+    volunteering = Column('volunteering', Float, nullable=False)
+    grade_classification = Column('grade_class', Float, nullable=False)
 
-    def __init__(self, age: int, gender_code: int, 
-                 ethnicity_code: int, parental_education_level: int, 
-                 weekly_study_time: int, absence_count: int, 
-                 tutoring_status: int, parental_support_level: int, 
-                 extracurricular: int, sports: int, 
-                 music: int, volunteering: int, 
-                 grade_classification: int, student_id: Optional[int] = None) -> None:
+    def __init__(self, age: float, gender_code: float, 
+                 ethnicity_code: float, parental_education_level: float, 
+                 weekly_study_time: float, absence_count: float, 
+                 tutoring_status: float, parental_support_level: float, 
+                 extracurricular: float, sports: float, 
+                 music: float, volunteering: float, 
+                 grade_classification: float, student_id: Optional[int] = None) -> None:
         """
         Cria um registro de performance do estudante.
 
