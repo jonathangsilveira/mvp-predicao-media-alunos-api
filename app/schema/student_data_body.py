@@ -1,15 +1,15 @@
 from pydantic import BaseModel
 
 class StudentDataBody(BaseModel):
-    age: int = 15
-    gender_code: int = 1 
-    ethnicity_code: int = 1
-    parental_education_level: int = 1 
-    weekly_study_time: int = 10
-    absence_count: int = 10
-    tutoring_status: int = 0
-    parental_support_level: int = 3 
-    extracurricular: int = 0
-    sports: int = 1
-    music: int = 0
-    volunteering: int = 0
+    age: float = 15.0
+    gender_code: float = 1.0 
+    ethnicity_code: float = 1.0
+    parental_education_level: float = 1.0 
+    weekly_study_time: float = 10.0
+    absence_count: float = 10.0
+    tutoring_status: float = 0.0
+    parental_support_level: float = 3.0 
+    extracurricular: float = 0.0
+    sports: float = 1.0
+    music: float = 0.0
+    volunteering: float = 0.0
