@@ -14,7 +14,7 @@ y_dataframe = dataset_loader.load(source=y_dataset_filepath)
 
 x_data = x_dataframe.to_numpy()
 y_data = y_dataframe.to_numpy()
-x = x_data[:,0:-1]
+x = x_data[:,0:12]
 y = y_data[:,-1]
 
 def test_pipeline_svm_model() -> None:
