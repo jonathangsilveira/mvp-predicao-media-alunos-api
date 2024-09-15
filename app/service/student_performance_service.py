@@ -30,7 +30,7 @@ class StudentPerformanceService:
         self.pipeline.load(PIPELINE_FILE_PATH)
         
         prediction = self.pipeline.predict(input)
-        outcome = int(prediction[0])
+        outcome = prediction[0]
         grade = self.grade_mapper.map(outcome)
 
         self.__insert_student_performance__(studentData, grade)
