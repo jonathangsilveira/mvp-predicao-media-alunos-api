@@ -14,18 +14,18 @@ class StudentPerformanceDataMapper:
     def to_response(self, model: StudentPerformance) -> StudentPerformanceResponse:
         return StudentPerformanceResponse(
             student_id=model.student_id,
-            age=model.age, 
-            gender_code=model.gender_code, 
-            ethnicity_code=model.ethnicity_code,
-            parental_education_level=model.parental_education_level,
-            weekly_study_time=model.weekly_study_time,
-            absence_count=model.absence_count,
-            tutoring_status=model.tutoring_status,
-            parental_support_level=model.parental_support_level,
-            extracurricular=model.extracurricular,
-            sports=model.sports,
-            music=model.music,
-            volunteering=model.volunteering,
+            age=int(model.age), 
+            gender_code=self.__translate_gender(model.gender_code), 
+            ethnicity_code=self.__translate_ethnicity(model.ethnicity_code),
+            parental_education_level=self.__translate_educational_level(model.parental_education_level),
+            weekly_study_time=f'{int(model.weekly_study_time)}h',
+            absence_count=int(model.absence_count),
+            tutoring_status=self.__to_bool(model.tutoring_status),
+            parental_support_level=self.__translate_support_level(model.parental_support_level),
+            extracurricular=self.__to_bool(model.extracurricular),
+            sports=self.__to_bool(model.sports),
+            music=self.__to_bool(model.music),
+            volunteering=self.__to_bool(model.volunteering),
             grade_classification=model.grade_classification.name
         )
 
