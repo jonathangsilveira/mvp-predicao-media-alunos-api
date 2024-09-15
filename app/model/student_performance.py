@@ -5,12 +5,12 @@ from app.model.grade import Grade
 
 class StudentPerformance:
     
-    def __init__(self, age: int, gender_code: int, 
-                 ethnicity_code: int, parental_education_level: int, 
-                 weekly_study_time: int, absence_count: int, 
-                 tutoring_status: int, parental_support_level: int, 
-                 extracurricular: int, sports: int, 
-                 music: int, volunteering: int, 
+    def __init__(self, age: float, gender_code: float, 
+                 ethnicity_code: float, parental_education_level: float, 
+                 weekly_study_time: float, absence_count: float, 
+                 tutoring_status: float, parental_support_level: float, 
+                 extracurricular: float, sports: float, 
+                 music: float, volunteering: float, 
                  grade_classification: Grade, student_id: Optional[int] = None) -> None:
         self.age = age
         self.gender_code = gender_code
