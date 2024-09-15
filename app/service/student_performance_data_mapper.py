@@ -63,3 +63,49 @@ class StudentPerformanceDataMapper:
             volunteering=performance.volunteering,
             grade_classification=performance.grade_classification.value
         )
+    
+    def __translate_educational_level(self, value: float) -> str:
+        if value < 1.0:
+            return 'Nenhuma'
+        elif value < 2.0:
+            return 'Ensino médio'
+        elif value < 3.0:
+            return 'Ensino fundamental'
+        elif value < 4.0:
+            return 'Ensino Superior'
+        else:
+            return 'Acima de superior'
+        
+    def __translate_support_level(self, value: float) -> str:
+        if value < 1.0:
+            return 'Nenhum'
+        elif value < 2.0:
+            return 'Baixo'
+        elif value < 3.0:
+            return 'Moderado'
+        elif value < 4.0:
+            return 'Alto'
+        else:
+            return 'Muito alto'
+        
+    def __translate_gender(self, value: float) -> str:
+        if value <= 1.0:
+            return 'Masculino'
+        else:
+            return 'Feminino'
+        
+    def __translate_ethnicity(self, value: float) -> str:
+        if value < 1.0:
+            return 'Caucasiano'
+        elif value < 2.0:
+            return 'Afrodescendente'
+        elif value < 3.0:
+            return 'Asiático'
+        else:
+            return 'Outros'
+        
+    def __to_bool(self, value: float) -> bool:
+        if value < 1.0:
+            return False
+        else:
+            return True
