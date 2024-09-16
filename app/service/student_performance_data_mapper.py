@@ -20,12 +20,12 @@ class StudentPerformanceDataMapper:
             parental_education_level=self.__translate_educational_level(model.parental_education_level),
             weekly_study_time=f'{int(model.weekly_study_time)}h',
             absence_count=int(model.absence_count),
-            tutoring_status=self.__to_bool(model.tutoring_status),
+            tutoring_status=self.__to_yes_no(model.tutoring_status),
             parental_support_level=self.__translate_support_level(model.parental_support_level),
-            extracurricular=self.__to_bool(model.extracurricular),
-            sports=self.__to_bool(model.sports),
-            music=self.__to_bool(model.music),
-            volunteering=self.__to_bool(model.volunteering),
+            extracurricular=self.__to_yes_no(model.extracurricular),
+            sports=self.__to_yes_no(model.sports),
+            music=self.__to_yes_no(model.music),
+            volunteering=self.__to_yes_no(model.volunteering),
             grade_classification=model.grade_classification.name
         )
 
@@ -104,8 +104,8 @@ class StudentPerformanceDataMapper:
         else:
             return 'Outros'
         
-    def __to_bool(self, value: float) -> bool:
+    def __to_yes_no(self, value: float) -> str:
         if value < 1.0:
-            return False
+            return 'Não'
         else:
-            return True
+            return 'Sim'
