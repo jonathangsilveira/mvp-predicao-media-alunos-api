@@ -8,12 +8,12 @@ class StudentPerformanceResponse(BaseModel):
     parental_education_level: str = 'Ensino médio' 
     weekly_study_time: str = '10h'
     absence_count: int = 10
-    tutoring_status: bool = False
+    tutoring_status: str = 'Não'
     parental_support_level: str = 'Moderado' 
-    extracurricular: bool = False
-    sports: bool = True
-    music: bool = True
-    volunteering: bool = False
+    extracurricular: str = 'Não'
+    sports: str = 'Sim'
+    music: str = 'Sim'
+    volunteering: str = 'Não'
     grade_classification: str = 'C'
 
 class StudentPerformancesResponse(BaseModel):
