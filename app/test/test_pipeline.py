@@ -1,5 +1,5 @@
 
-from app.ml_model.cvs_dataset_loader import CSVDatasetLoader
+from app.ml_model.dataset_loader import CSVDatasetLoader
 from app.ml_model.accuracy_evaluator import AccuracyEvaluator
 from app.ml_model.pipeline_wrapper import PipelineWrapper
 
