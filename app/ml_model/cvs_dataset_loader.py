@@ -7,7 +7,7 @@ class DatasetLoader(ABC):
     def load(self, source: any) -> DataFrame:
         ...
 
-class CVSDatasetLoader(DatasetLoader):
+class CSVDatasetLoader(DatasetLoader):
 
     def load(self, source: any) -> DataFrame:
         return read_csv(str(source), skiprows=1, delimiter=',')

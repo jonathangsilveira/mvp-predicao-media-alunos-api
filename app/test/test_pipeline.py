@@ -1,9 +1,9 @@
 
-from app.ml_model.cvs_dataset_loader import CVSDatasetLoader
+from app.ml_model.cvs_dataset_loader import CSVDatasetLoader
 from app.ml_model.accuracy_evaluator import AccuracyEvaluator
 from app.ml_model.pipeline_wrapper import PipelineWrapper
 
-dataset_loader = CVSDatasetLoader()
+dataset_loader = CSVDatasetLoader()
 evaluator = AccuracyEvaluator()
 pipeline = PipelineWrapper()
 
