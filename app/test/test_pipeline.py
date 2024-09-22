@@ -1,11 +1,11 @@
 
 from app.ml_model.cvs_dataset_loader import CVSDatasetLoader
 from app.ml_model.accuracy_evaluator import AccuracyEvaluator
-from app.ml_model.pipeline_delegate import PipelineDelegate
+from app.ml_model.pipeline_wrapper import PipelineWrapper
 
 dataset_loader = CVSDatasetLoader()
 evaluator = AccuracyEvaluator()
-pipeline = PipelineDelegate()
+pipeline = PipelineWrapper()
 
 x_dataset_filepath = './machine_learning/data/x_test_dataset_student_performance.csv'
 y_dataset_filepath = './machine_learning/data/y_test_dataset_student_performance.csv'

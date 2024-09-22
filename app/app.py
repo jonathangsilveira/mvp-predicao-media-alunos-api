@@ -6,7 +6,7 @@ from flask_cors import CORS
 from pydantic import BaseModel
 
 
-from app.ml_model.pipeline_delegate import PipelineDelegate
+from app.ml_model.pipeline_wrapper import PipelineWrapper
 from app.ml_model.preprocessing import InputReshapePreProcessorImpl
 from app.repository.student_performance_repository import StudentPerformanceRepository
 from app.schema.student_data_body import StudentDataBody
@@ -36,7 +36,7 @@ grade_mapper = GradeMapper()
 data_mapper = StudentPerformanceDataMapper(grade_mapper=grade_mapper)
 repository = StudentPerformanceRepository(data_mapper=data_mapper)
 pre_processor = InputReshapePreProcessorImpl()
-pipeline = PipelineDelegate()
+pipeline = PipelineWrapper()
 service = StudentPerformanceService(repository=repository, grade_mapper=grade_mapper, 
                                     pre_processor=pre_processor, pipeline=pipeline)
 

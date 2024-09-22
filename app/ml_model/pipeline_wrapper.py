@@ -4,7 +4,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np
 import pickle
 
-class PipelineDelegate:
+class PipelineWrapper:
     pipeline: Optional[Pipeline] = None
 
     def load(self, filepath: str) -> None:

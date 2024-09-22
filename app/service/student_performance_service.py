@@ -2,7 +2,7 @@ from typing import Optional
 import pandas as pd
 import numpy as np
 
-from app.ml_model.pipeline_delegate import PipelineDelegate
+from app.ml_model.pipeline_wrapper import PipelineWrapper
 from app.model.grade import Grade
 
 from app.model.student_performance import StudentPerformance
@@ -18,7 +18,7 @@ class StudentPerformanceService:
 
     def __init__(self, repository: StudentPerformanceRepository, 
                  grade_mapper: GradeMapper, pre_processor: InputReshapePreProcessor, 
-                 pipeline: PipelineDelegate) -> None:
+                 pipeline: PipelineWrapper) -> None:
         self.repository = repository
         self.grade_mapper = grade_mapper
         self.pre_processor = pre_processor
