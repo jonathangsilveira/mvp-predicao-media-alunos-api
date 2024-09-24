@@ -15,8 +15,8 @@ class StudentPerformanceDataMapper:
         return StudentPerformanceResponse(
             student_id=model.student_id,
             age=int(model.age), 
-            gender_code=self.__translate_gender(model.gender_code), 
-            ethnicity_code=self.__translate_ethnicity(model.ethnicity_code),
+            gender=self.__translate_gender(model.gender_code), 
+            ethnicity=self.__translate_ethnicity(model.ethnicity_code),
             parental_education_level=self.__translate_educational_level(model.parental_education_level),
             weekly_study_time=f'{int(model.weekly_study_time)}h',
             absence_count=int(model.absence_count),
@@ -89,17 +89,17 @@ class StudentPerformanceDataMapper:
             return 'Muito alto'
         
     def __translate_gender(self, value: float) -> str:
-        if value <= 1.0:
-            return 'Masculino'
-        else:
+        if round(value) > 0:
             return 'Feminino'
+        else:
+            return 'Masculino'
         
     def __translate_ethnicity(self, value: float) -> str:
-        if value < 1.0:
+        if value <= 1.0:
             return 'Caucasiano'
-        elif value < 2.0:
+        elif value <= 2.0:
             return 'Afrodescendente'
-        elif value < 3.0:
+        elif value <= 3.0:
             return 'Asiático'
         else:
             return 'Outros'
