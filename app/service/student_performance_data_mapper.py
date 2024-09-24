@@ -95,17 +95,19 @@ class StudentPerformanceDataMapper:
             return 'Masculino'
         
     def __translate_ethnicity(self, value: float) -> str:
-        if value <= 1.0:
+        code = round(value)
+        if code == 0:
             return 'Caucasiano'
-        elif value <= 2.0:
+        elif code == 1:
             return 'Afrodescendente'
-        elif value <= 3.0:
+        elif code == 2:
             return 'Asiático'
         else:
             return 'Outros'
         
     def __to_yes_no(self, value: float) -> str:
-        if value < 1.0:
-            return 'Não'
-        else:
+        code = round(value)
+        if code > 0:
             return 'Sim'
+        else:
+            return 'Não'
